@@ -9,9 +9,14 @@ def connect_fetch():
     conn = None
 
     # connect using out database parameters
+    host = input("Enter host:\n")
+    database = input("Enter database:\n")
+    user = input("Enter user:\n")
+    password = input("Enter password:\n")
+
     try:
-        conn = mysql.connect(host="localhost", database="demo",
-                             user="Olorunfemi", password="Olorunfemi@123")
+        conn = mysql.connect(host=host, database=database,
+                             user=user, password=password)
         print("Connecting to the database server")
         if conn.is_connected:
             print("Connected to database server")
@@ -25,6 +30,7 @@ def connect_fetch():
 
             # display data from the database
             print("\nPrinting each Human record")
+            # records.insert(10, [11, "Shade Ade", "Blue", "Other", "Unknown"])
             for row in records:
                 print("Human Id: ", row[0])
                 print("Name: ", row[1])
